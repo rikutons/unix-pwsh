@@ -1,5 +1,5 @@
-$githubUser = "CrazyWolf13" # Change this here if you forked the repository.
-$name= "User" # Change this to your name.
+$githubUser = "rikutons" # Change this here if you forked the repository.
+$name= "rikutons" # Change this to your name.
 $githubRepo = "unix-pwsh" # Change this here if you forked the repository and changed the name.
 $githubBaseURL= "https://raw.githubusercontent.com/$githubUser/$githubRepo/main"
 $OhMyPoshConfigFileName = "montys.omp.json" # Filename of the OhMyPosh config file
@@ -64,10 +64,6 @@ function Run-UpdatePowershell {
 
 # ----------------------------------------------------------------------------
 
-Write-Host ""
-Write-Host "Welcome $name ⚡" -ForegroundColor $promptColor
-Write-Host ""
-
 # Function to check if all the $files exist or not.
 $allFilesExist = $files | ForEach-Object { Join-Path -Path $baseDir -ChildPath $_ } | Test-Path -PathType Leaf -ErrorAction SilentlyContinue | ForEach-Object { $_ -eq $true }
 if ($allFilesExist -contains $false) {
@@ -80,7 +76,6 @@ if ($allFilesExist -contains $false) {
 # Check for dependencies and if not chainload the installer.
 if (Test-Path -Path $xConfigPath) {
     # Check if the Master config file exists, if so skip every other check.
-    Write-Host "✅ Successfully initialized Pwsh`n" -ForegroundColor Green
     Import-Module Terminal-Icons
     # foreach ($module in $modules) {
     #     # As the master config exists, we assume that all modules are installed.
